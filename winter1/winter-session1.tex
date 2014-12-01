@@ -47,6 +47,7 @@
 
 
 \usepackage{graphicx}
+
 \newcommand{\shellcmd}[1]{\\\indent\indent\texttt{\footnotesize\# #1}\\}  %For linux commands
 
 \title{Getting Started}
@@ -103,7 +104,7 @@
 \end{frame}
 
 \begin{frame}{Outline}
-  \tableofcontents
+  \tableofcontents[sectionstyle=show/show,subsectionstyle=show/show,subsubsectionstyle=hide]
   % You might wish to add the option [pausesections]
 \end{frame}
 
@@ -143,7 +144,7 @@
 % with the \pause command:
 \begin{frame}{Installing OpenCV}{Ubuntu}
 \begin{block}{Using the apt-get tool}
-sudo apt-get install python-opencv
+\shellcmd{sudo apt-get install python-opencv}
 \end{block}
 
 %  \item {   
@@ -184,24 +185,71 @@ Installs an older version of OpenCV. Build from source to get the latest version
 \begin{frame}{Image Processing}{Recap}
 \begin{itemize}
 \item Thresholding
-\pause
 \item Erosion
-\pause
 \item Dilation
 \end{itemize}
 \end{frame}
 
-\subsection{Image Transformations}
-\begin{frame}{Image Transformations}{Recap}
+\subsubsection{Thresholding}
+\begin{frame}{Thresholding}{Image Processing}
+\centering
+    \includegraphics[width=50mm]{images/baboon.jpg}\includegraphics[width=50mm]{images/thresholded.png}
+
+\end{frame}
+
+\subsubsection{Erosion}
+\begin{frame}{Erosion}{Image Processing}
+\centering
+    \includegraphics[width=70mm]{images/erosion2.png}
+
+\centering    
+    \includegraphics[width=70mm]{images/erosion.png}
+
+\end{frame}
+
+
+
+\subsubsection{Dilation}
+\begin{frame}{Dilation}{Image Processing}
+\centering
+    \includegraphics[width=60mm]{images/dilated.jpg}    
+
+\centering
+    \includegraphics[width=70mm]{images/dilation.png}
+
+
+\end{frame}
+\subsection{Image Transformation}
+
+\begin{frame}{Image Transformation}{Fairly Simple}
 \begin{itemize}
-\item Rotation
-\pause
+\item Rotation 
 \item Translation
-\pause
 \item Cropping
-\pause
 \item Warping
 \end{itemize}
+\end{frame}
+
+\subsubsection{Rotation}
+\begin{frame}{Rotation}{Image Transformation}
+\centering
+    \includegraphics[width=30mm]{images/baboon.jpg} 
+
+\centering    
+    \includegraphics[width=30mm]{images/rotated90.png}\includegraphics[width=30mm]{images/rotated45.png}
+
+\end{frame}
+
+\subsubsection{Translation}
+\begin{frame}{Translation}{Image Transformation}
+\centering \includegraphics[width=40mm]{images/baboon.jpg}\includegraphics[width=40mm]{images/translated.png}
+
+\end{frame}
+
+\subsubsection{Warping}
+\begin{frame}{Warping}{Image Transformation}
+\centering \includegraphics[width=40mm,height=40mm]{images/baboon.jpg}\includegraphics[width=40mm,height=40mm]{images/warped.png}
+
 \end{frame}
 
 \section{Feature Extraction}
@@ -227,23 +275,37 @@ We'll be using Machine Learning to build a digit recognizer in tomorrow's sessio
 \begin{frame}{Feature Extraction}{Why we need features?}
 Lets say you are in an unkown country. 
 To know about the country, you can see each and every house in it, and using the reference information about all houses (location and shape) in every country, you can find which country you are in.
-That sounds bad, lets take an helicopter and fly. What you can see now are not houses, but streets filled with houses. You now have a feature set of smaller size (All street names in the country) which you can use to deduce the country.
+That sounds bad, lets take a helicopter and fly. What you can see now are not houses, but streets filled with houses.
+You now have a feature set of smaller size (All street names in the country) which can be looked up easier.
 Even that can be difficult, so you can fly further up and now you see cities, which should make the task fairly easy.
 It is the same case with feature extraction. You look at the dataset from a higher abstraction, extract relevant features (like City names) and train your machine.
-The catch here is you cannot fly so high that you see the country as a whole to directly find what it is. Using whatever abstraction possible (Similar to city names), you try to learn higher levels of abstraction (Country names).
+The catch here is you cannot fly so high that you see the country as a whole to directly find what it is. Using whatever abstraction possible (looking from a helicopter), you try to learn higher levels of abstraction (looking from a space shuttle).
+So, why are there so many techniques for extracting features?
+Instead of looking at cities, a completely different way would be to look at mountains and rivers to identify the country. We need to find out the best one for the task at hand.
 \end{frame}
 
 \subsection{Some feature extraction tools}
 \begin{frame}{Feature Extraction Tools}{There are many more available}
 \begin{enumerate}
 \item Binarized pixel values
-\pause
-\item Intensity histogram
-\pause
+\item Intensity histogram 
 \item Histogram of Oriented gradients
-\pause
 \item SIFT
 \end{enumerate}
+\end{frame}
+
+\subsubsection{Intensity Histogram}
+\begin{frame}{Intensity Histogram}{Feature Extraction}
+\centering
+    \includegraphics[width=80mm]{images/intensity.png}
+
+\end{frame}
+
+\subsubsection{Histogram of Oriented Gradients}
+\begin{frame}{Histogram of Oriented Gradients}{Feature Extraction}
+\centering
+    \includegraphics[width=120mm]{images/hog.jpg}
+
 \end{frame}
 
 
